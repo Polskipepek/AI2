@@ -1,7 +1,7 @@
 ﻿using AI2.Entities;
 
 namespace AI2.Mutation {
-    internal interface IMutation {
+    public interface IMutation {
         IEnumerable<Individual> Mutate(IEnumerable<Individual> population);
     }
 }

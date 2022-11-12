@@ -1,5 +1,5 @@
 ﻿namespace AI2.ParentSelection {
-    class RouletteWheel {
+    public class RouletteWheel {
 
         private readonly float[] probabilities;
         private readonly Random random;

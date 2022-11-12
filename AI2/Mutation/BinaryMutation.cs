@@ -3,7 +3,7 @@ using AI2.Infrastructure;
 using Extensions.BitArrays;
 
 namespace AI2.Mutation {
-    internal class BinaryMutation : IMutation {
+    public class BinaryMutation : IMutation {
 
         public BinaryMutation(float mutationProb) {
             this.mutationProb = mutationProb;

@@ -1,7 +1,7 @@
 ﻿using AI2.Entities;
 
 namespace AI2.ParentSelection {
-    internal class RouletteWheelParentSelector : IParentSelection {
+    public class RouletteWheelParentSelector : IParentSelection {
         public RouletteWheelParentSelector(float percentOfPopulationToSelect) {
             this.percentOfPopulationToSelect = percentOfPopulationToSelect;
         }

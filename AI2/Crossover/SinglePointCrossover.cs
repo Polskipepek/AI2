@@ -4,7 +4,7 @@ using Extensions.BitArrays;
 using System.Collections;
 
 namespace AI2.Crossover {
-    internal class SinglePointCrossover : ICrossover {
+    public class SinglePointCrossover : ICrossover {
 
         public SinglePointCrossover(float probability) {
             Probability = probability;

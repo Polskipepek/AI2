@@ -5,7 +5,7 @@ using AI2.ParentSelection;
 using AI2.PopulationSelection;
 
 namespace AI2.GeneticAlgorithm {
-    internal class ClassicGeneticAlgorithm {
+    public class ClassicGeneticAlgorithm {
         public ClassicGeneticAlgorithm(IMutation mutationStrategy, IParentSelection parentSelectionStrategy, IPopulationSelection populationSelectionStrategy, ICrossover crossoverStrategy, int populationSize) {
             this.mutationStrategy = mutationStrategy;
             this.parentSelectionStrategy = parentSelectionStrategy;
@@ -32,7 +32,7 @@ namespace AI2.GeneticAlgorithm {
             population = mutationStrategy.Mutate(newPopulation).ToList();
         }
 
-        private float GetAveragePopulationFitness(out float minFitness, out float maxFitness) {
+        public float GetAveragePopulationFitness(out float minFitness, out float maxFitness) {
             var fitnesses = population.Select(individual => individual.GetResults().wartosc);
 
             maxFitness = fitnesses.Max();

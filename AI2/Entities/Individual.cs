@@ -3,7 +3,7 @@ using Extensions.BitArrays;
 using System.Collections;
 
 namespace AI2.Entities {
-    internal class Individual {
+    public class Individual {
 
         public Individual() {
             Genotype = BitArrayHelper.FromByteLE((byte)Rand.Random.Next(0, 128)).Skip(1);
