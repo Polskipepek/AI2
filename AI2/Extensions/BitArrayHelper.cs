@@ -4,6 +4,18 @@ using System.Text;
 namespace Extensions.BitArrays {
     public static class BitArrayHelper {
 
+        public static BitArray Merge(this IEnumerable<BitArray> bitArrayArray) {
+            if (!bitArrayArray.Any()) {
+                return null;
+            }
+
+            BitArray bitArray = new(bitArrayArray.First());
+            foreach (var bitA in bitArrayArray.Skip(1)) {
+                bitArray.MergeWith(bitA);
+            }
+            return bitArray;
+        }
+
         public static BitArray MergeWith(this BitArray bitArray, BitArray otherBitArray) {
             var totLength = bitArray.Length + otherBitArray.Length;
             var merged = new BitArray(totLength);

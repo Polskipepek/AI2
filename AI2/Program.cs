@@ -16,7 +16,7 @@ var res = individual.GetResults();
 //Console.WriteLine($"masa: {res.masa.ToString("0.0")}, wartosc: {res.wartosc.ToString("0.0")}");
 //Console.WriteLine($"Max wartosc: {bruteforce(out var bestArray)}, dla {bestArray.ToBitString()}");
 
-ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.05f), new RouletteWheelParentSelector(0.5f), new FIFOPopulationSelector(), new SinglePointCrossover(0.5f), 10);
+ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.05f), new RouletteWheelParentSelector(0.5f), new FitnessPopulationSelection(), new SinglePointCrossover(.5f), 10);
 for (int i = 0; i < 100; i++) {
     classic.Update();
     Console.WriteLine($"Iter: {(i + 1):00}\t{classic}");
