@@ -18,10 +18,11 @@ var res = individual.GetResults();
 //Console.WriteLine($"masa: {res.masa.ToString("0.0")}, wartosc: {res.wartosc.ToString("0.0")}");
 //Console.WriteLine($"Max wartosc: {bruteforce(out var bestArray)}, dla {bestArray.ToBitString()}");
 
-ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.05f), new TournamentParentSelector(0.1f), new FIFOPopulationSelector(), new MultiPointCrossover(.5f), 10);
-for (int i = 0; i < 151; i++) {
+ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.05f), new StochasticUniversalSamplingParentSelection(4), new FitnessPopulationSelection(), new SinglePointCrossover(.15f), 30);
+for (int i = 0; i < 101; i++) {
     classic.Update();
-    if (i % 10 == 0) Console.WriteLine($"Iter: {(i):000}\t{classic}");
+    if (i % 5 == 0)
+        Console.WriteLine($"Iter: {(i):000}\t{classic}");
 }
 
 Console.ReadLine();
