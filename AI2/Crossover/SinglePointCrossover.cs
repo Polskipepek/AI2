@@ -16,18 +16,21 @@ namespace AI2.Crossover {
             for (int i = 0; i < parents.Count() - 1; i += 2) {
                 if (TryCrossover(parents.ElementAt(i), parents.ElementAt(i + 1), out var newGeneA, out var newGeneB)) {
                     yield return new Individual(newGeneA.MergeWith(newGeneB));
+                } else {
+                    var parent = Rand.Random.Next(0, 1) == 0 ? parents.ElementAt(i) : parents.ElementAt(i + 1);
+                    yield return parent;
                 }
             }
         }
 
-        public bool TryCrossover(Individual parentA, Individual parentB, out BitArray newGeneA, out BitArray newGeneB) {
+        private bool TryCrossover(Individual parentA, Individual parentB, out BitArray newGeneA, out BitArray newGeneB) {
             newGeneA = null;
             newGeneB = null;
 
             if (Rand.Random.NextDouble() > Probability)
                 return false;
 
-            var genotypeLength = 7;
+            var genotypeLength = parentA.Genotype.Length;
             int cut = Rand.Random.Next(1, genotypeLength);
 
             newGeneA = parentA.Genotype.Take(cut);
