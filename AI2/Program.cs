@@ -9,17 +9,19 @@ using Extensions.BitArrays;
 using System.Collections;
 
 
-Console.WriteLine("Hello, World!");
+Console.WriteLine("Cwiczenie 2!");
+Console.WriteLine();
+
 Individual individual = new();
 var res = individual.GetResults();
 
 //Console.WriteLine($"masa: {res.masa.ToString("0.0")}, wartosc: {res.wartosc.ToString("0.0")}");
 //Console.WriteLine($"Max wartosc: {bruteforce(out var bestArray)}, dla {bestArray.ToBitString()}");
 
-ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.05f), new RouletteWheelParentSelector(0.5f), new FitnessPopulationSelection(), new SinglePointCrossover(.5f), 10);
-for (int i = 0; i < 100; i++) {
+ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.05f), new TournamentParentSelector(0.1f), new FIFOPopulationSelector(), new MultiPointCrossover(.5f), 10);
+for (int i = 0; i < 151; i++) {
     classic.Update();
-    Console.WriteLine($"Iter: {(i + 1):00}\t{classic}");
+    if (i % 10 == 0) Console.WriteLine($"Iter: {(i):000}\t{classic}");
 }
 
 Console.ReadLine();

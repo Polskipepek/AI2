@@ -1,16 +1,16 @@
 ﻿using AI2.Infrastructure;
 
 namespace AI2.ParentSelection {
-    public class RouletteWheel {
+    public class Tournament {
 
         private readonly float[] probabilities;
 
-        public RouletteWheel(float[] probabilities) {
+        public Tournament(float[] probabilities) {
             this.probabilities = probabilities;
         }
 
-        public int Spin() {
-            var rand = Rand.Random.NextDouble();
+        public int GetResult() {
+            var rand = Rand.Random.NextDouble() * probabilities.Sum();
             float currentVal = 0;
             int i = 0;
 
