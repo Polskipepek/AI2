@@ -1,0 +1,9 @@
+Nazwa;masa;wartosc
+Buty;1;1
+Kanapka;0,1;0,2
+Laptop;1,7;2,5
+Kurtka;1;2
+Spodnie;0,5;1
+Zegarek;0,2;2
+Termos;0,5;0,4
+Diament;10;1

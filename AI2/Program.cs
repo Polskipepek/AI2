@@ -12,11 +12,23 @@ using System.Collections;
 Console.WriteLine("Cwiczenie 2!");
 Console.WriteLine();
 
+var defaultItems = new List<Item>() {
+                new Item("buty", 1f, 1f),
+                new Item("kanapka", 0.1f, 0.2f),
+                new Item("laptop", 1.7f, 2.5f),
+                new Item("kurtka", 1f, 2),
+                new Item("Spodnie", 0.5f, 1f),
+                new Item("zegarek", 0.2f, 2f),
+                new Item("termos", 0.5f, 0.4f)
+            };
+Individual.SetItems(defaultItems);
+
 Individual individual = new();
 var res = individual.GetResults();
 
 //Console.WriteLine($"masa: {res.masa.ToString("0.0")}, wartosc: {res.wartosc.ToString("0.0")}");
 //Console.WriteLine($"Max wartosc: {bruteforce(out var bestArray)}, dla {bestArray.ToBitString()}");
+
 
 ClassicGeneticAlgorithm classic = new(new BinaryMutation(0.1f), new StochasticUniversalSamplingParentSelection(8), new FIFOPopulationSelector(), new SinglePointCrossover(.1f), 16);
 for (int i = 0; i < 101; i++) {
